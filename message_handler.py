@@ -18,22 +18,22 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	elif len(arr)==2:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr)
-		update.message.reply_text('Now tell us the Product brand?For example in the example it is "amoxil"')
+		update.message.reply_text('Now tell us the Product brand?')
 	
 	elif len(arr)==3:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr)
-		update.message.reply_text('Now tell us the Product country?For example in the example it is "Germany"')
+		update.message.reply_text('Now tell us the Product country?')
 	
 	elif len(arr)==4:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr)
-		update.message.reply_text('Now tell us the Product price?For example in the example it is "50bir per bottle"')
+		update.message.reply_text('Now tell us the Product price?"')
 	
 	elif len(arr)==5:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr)
-		update.message.reply_text('Now tell us the Expiry date?For example in the example it is "September 2023"')
+		update.message.reply_text('Now tell us the Expiry date?')
 	
 	elif len(arr)==6:
 		arr.append(str(text))
@@ -43,7 +43,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	elif len(arr)==7:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr)
-		update.message.reply_text('Now tell us the Stock amount?For example in the example it is "100 cartoon 10 bottle per cartoon "')
+		update.message.reply_text('Now tell us the Stock amount?')
 
 	elif len(arr)==8:
 		arr.append(str(text))
@@ -55,7 +55,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
     ])
 		bot.send_message(verifierchat_id,f'''
 {arr[0]} {arr[2]}
-
+{arr[1]}
 Brand _ {arr[3]}
 Country_ {arr[4]} 
 Price _ {arr[5]}
