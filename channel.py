@@ -15,22 +15,26 @@ PORT = int(os.environ.get('PORT',8443))
 
 bot = telegram.Bot(token=key)
 def start_command(update,context):
-    if bool(context.args) and update.message.chat_id==verifierchat_id:
+    if bool(context.args) and update.message.chat_id==verifierchat_id:        
         product = Product()
         # pdb.set_trace()
         id = int(context.args[0])
-        arr=product.viewOne(id)
-        product.verify(id)
-        bot.send_message(channel_id,f'''
-{arr[0]} {arr[2]}
+        arr=product.viewProds(id)
+        response=''
+        for i,prod in enumerate(arr):
+            product.verify(prod[11])
+            response+=f'''  
+{i+1}. {prod[0]} {prod[2]}
+{prod[1]}
+Brand _ {prod[3]}
+Country_ {prod[4]} 
+Price _ {prod[5]}
+Expiry date_ {prod[6]}
+Stock amount _ {prod[8]}
+Description _ {prod[7]}
 
-Brand _ {arr[3]}
-Country_ {arr[4]} 
-Price _ {arr[5]}
-Expiry date_ {arr[6]}
-Stock amount _ {arr[8]}
-Description _ {arr[7]}
-''')
+'''
+        bot.send_message(channel_id,response)
         return update.message.reply_text('The message has been posted to the channel')
     response='''This is upload bot where you can post your product
                 And we will verify then post it on our channel.
@@ -86,13 +90,13 @@ def main():
     dp.add_handler(MessageHandler(Filters.text, handle_message))
 
     dp.add_error_handler(error)
-    # updater.start_polling()
+    updater.start_polling()
 
     updater.start_webhook(listen="0.0.0.0",
                           port=int(PORT),
                           url_path=key,
                           webhook_url=APP_NAME + key)
-    updater.idle()
+    # updater.idle()
 
 
 main()
