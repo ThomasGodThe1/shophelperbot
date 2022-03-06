@@ -10,7 +10,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	prods_id=user.viewOne(update.message.chat_id)[2]
 	if len(arr)==0:
 		user.update(update.message.chat_id,[str(text)],prods_id)
-		update.message.reply_text('Now tell us the Product name?For example in the example it is "Amoxacilin"')
+		update.message.reply_text('Product name?"')
 
 	elif len(arr)==1:
 		arr.append(str(text))
@@ -35,7 +35,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	elif len(arr)==5:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Now tell us the Expiry date?')
+		update.message.reply_text('Expiry date?')
 	
 	elif len(arr)==6:
 		arr.append(str(text))
@@ -79,7 +79,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 		if text=='Yes':
 			# pdb.set_trace()
 			prods_id=user.viewOne(update.message.chat_id)[2]
-			user.update(update.message.chat_id,arr[1:2],prods_id)
+			user.update(update.message.chat_id,arr[0:1],prods_id)
 			reply_markup = ReplyKeyboardRemove()
 			update.message.reply_text('Now tell us the Product name?',reply_markup=reply_markup)
 
