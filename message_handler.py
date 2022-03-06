@@ -87,18 +87,17 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 			prods_id=user.viewOne(update.message.chat_id)[2]
 			product=Product()
 			prods = product.viewProds(prods_id)
-			response=''
+			response=f'{prods[0][0]}'
 			for i,prod in enumerate(prods):
 				response+=f'''
-{i+1}. {prod[0]} {prod[2]}
-{prod[1]}
+
+{i+1}. {prod[1]} {prod[2]}
 Brand _ {prod[3]}
 Country_ {prod[4]} 
 Price _ {prod[5]}
 Expiry date_ {prod[6]}
 Stock amount _ {prod[8]}
 Description _ {prod[7]}
-
 '''
 		
 			reply_markup=InlineKeyboardMarkup([
