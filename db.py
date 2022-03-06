@@ -5,7 +5,7 @@ import os
 import urllib.parse as up
 
 
-# url = os.environ['DATABASE_URL']
+url = os.environ['DATABASE_URL']
 
 # pdb.set_trace()
 
