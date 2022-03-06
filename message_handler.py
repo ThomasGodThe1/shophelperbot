@@ -15,22 +15,22 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	elif len(arr)==1:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Now tell us the Product preparation?For example in the example it is "syrup 250ml"')
+		update.message.reply_text('Preparation?')
 
 	elif len(arr)==2:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Now tell us the Product brand?')
+		update.message.reply_text('Brand?')
 	
 	elif len(arr)==3:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Now tell us the Product country?')
+		update.message.reply_text('Country?')
 	
 	elif len(arr)==4:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Now tell us the Product price?"')
+		update.message.reply_text('Price?')
 	
 	elif len(arr)==5:
 		arr.append(str(text))
@@ -45,7 +45,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	elif len(arr)==7:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Now tell us the Stock amount?')
+		update.message.reply_text('Cartoon Size?')
 
 	elif len(arr)==8:
 		# pdb.set_trace()
@@ -96,7 +96,7 @@ Brand _ {prod[3]}
 Country_ {prod[4]} 
 Price _ {prod[5]}
 Expiry date_ {prod[6]}
-Stock amount _ {prod[8]}
+Cartoon Size _ {prod[8]}
 Description _ {prod[7]}
 '''
 		

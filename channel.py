@@ -30,7 +30,7 @@ Brand _ {prod[3]}
 Country_ {prod[4]} 
 Price _ {prod[5]}
 Expiry date_ {prod[6]}
-Stock amount _ {prod[8]}
+Cartoon Size _ {prod[8]}
 Description _ {prod[7]}
 '''
         bot.send_message(channel_id,response)
