@@ -10,6 +10,7 @@ import os
 print("Bot started...")
 
 APP_NAME='https://pure-escarpment-54630.herokuapp.com/'
+t=''
 
 PORT = int(os.environ.get('PORT',8443))
 
