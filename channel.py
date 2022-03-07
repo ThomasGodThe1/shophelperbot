@@ -25,13 +25,14 @@ def start_command(update,context):
             product.verify(prod[11])
             response+=f'''  
 
-{i+1}. {prod[1]} {prod[2]}
-Brand _ {prod[3]}
-Country_ {prod[4]} 
-Price _ {prod[5]}
-Expiry date_ {prod[6]}
-Cartoon Size _ {prod[8]}
-Description _ {prod[7]}
+{i+1}. {prod[2]} {prod[3]}
+Brand _ {prod[4]}
+Country_ {prod[5]} 
+Price _ {prod[6]}
+Expiry date_ {prod[7]}
+Cartoon Size _ {prod[9]}
+Description _ {prod[8]}
+Phone Number _ {prod[1]}
 '''
         bot.send_message(channel_id,response)
         return update.message.reply_text('The message has been posted to the channel')

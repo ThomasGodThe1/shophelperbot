@@ -15,39 +15,44 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	elif len(arr)==1:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Preparation?')
+		update.message.reply_text('Phone Number?')
 
 	elif len(arr)==2:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Brand?')
-	
+		update.message.reply_text('Preparation?')
+
 	elif len(arr)==3:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Country?')
+		update.message.reply_text('Brand?')
 	
 	elif len(arr)==4:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Price?')
+		update.message.reply_text('Country?')
 	
 	elif len(arr)==5:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Expiry date?')
+		update.message.reply_text('Price?')
 	
 	elif len(arr)==6:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
+		update.message.reply_text('Expiry date?')
+	
+	elif len(arr)==7:
+		arr.append(str(text))
+		user.update(update.message.chat_id,arr,prods_id)
 		update.message.reply_text('''Now tell us the Description?For example in the example it is "immediate delivery Minimum 10 cartoon Only cash, no credit "''')
 
-	elif len(arr)==7:
+	elif len(arr)==8:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
 		update.message.reply_text('Cartoon Size?')
 
-	elif len(arr)==8:
+	elif len(arr)==9:
 		# pdb.set_trace()
 		arr.append(str(text))
 		if not bool(user.viewOne(update.message.chat_id)[2]):
@@ -75,7 +80,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 			reply_markup = ReplyKeyboardMarkup(keyboard,resize_keyboard=True)
 			update.message.reply_text('Great your product is added do you want to add another one to your post?',reply_markup=reply_markup)	
 		
-	elif len(arr)==9:
+	elif len(arr)==10:
 		if text=='Yes':
 			# pdb.set_trace()
 			prods_id=user.viewOne(update.message.chat_id)[2]
@@ -91,13 +96,14 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 			for i,prod in enumerate(prods):
 				response+=f'''
 
-{i+1}. {prod[1]} {prod[2]}
-Brand _ {prod[3]}
-Country_ {prod[4]} 
-Price _ {prod[5]}
-Expiry date_ {prod[6]}
-Cartoon Size _ {prod[8]}
-Description _ {prod[7]}
+{i+1}. {prod[2]} {prod[3]}
+Brand _ {prod[4]}
+Country_ {prod[5]} 
+Price _ {prod[6]}
+Expiry date_ {prod[7]}
+Cartoon Size _ {prod[9]}
+Description _ {prod[8]}
+Phone Number _ {prod[1]}
 '''
 		
 			reply_markup=InlineKeyboardMarkup([

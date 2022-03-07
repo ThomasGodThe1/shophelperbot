@@ -64,6 +64,7 @@ class Product:
         self.cur = self.conn.cursor()
         self.cur.execute(f'''CREATE TABLE IF NOT EXISTS "{prod_table}" (
     "comp_name" VARCHAR(50) NOT NULL,
+    "phone_num" VARCHAR(50) NOT NULL,
     "prod_name" VARCHAR(50) NOT NULL,
     "prod_prep" VARCHAR(50) NOT NULL,
     "prod_brand" VARCHAR(50) NOT NULL,
@@ -81,7 +82,7 @@ class Product:
 
     def insert(self,history,chatId,prods_id):
         # pdb.set_trace()
-        self.cur.execute("INSERT INTO {} VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', {}, {}) ON CONFLICT DO NOTHING".format(prod_table,history[0],history[1],history[2],history[3],history[4],history[5],history[6],history[7],history[8],chatId,prods_id))
+        self.cur.execute("INSERT INTO {} VALUES('{}', '{}','{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', {}, {}) ON CONFLICT DO NOTHING".format(prod_table,history[0],history[1],history[2],history[3],history[4],history[5],history[6],history[7],history[8],history[9],chatId,prods_id))
         self.cur.execute('SELECT LASTVAL()')
         lastid = self.cur.fetchone()[0]
         self.conn.commit()
