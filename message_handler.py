@@ -92,7 +92,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 			prods_id=user.viewOne(update.message.chat_id)[2]
 			product=Product()
 			prods = product.viewProds(prods_id)
-			response=f'{prods[0][0]} \nPhone Number:-{prods[0][2]}'
+			response=f'{prods[0][0]} \nPhone Number:-{prods[0][1]}'
 			for i,prod in enumerate(prods):
 				response+=f'''
 
