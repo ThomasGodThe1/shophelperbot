@@ -10,12 +10,12 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 	prods_id=user.viewOne(update.message.chat_id)[2]
 	if len(arr)==0:
 		user.update(update.message.chat_id,[str(text)],prods_id)
-		update.message.reply_text('Product name?"')
+		update.message.reply_text('Phone Number?')
 
 	elif len(arr)==1:
 		arr.append(str(text))
 		user.update(update.message.chat_id,arr,prods_id)
-		update.message.reply_text('Phone Number?')
+		update.message.reply_text('Product name?"')
 
 	elif len(arr)==2:
 		arr.append(str(text))
@@ -84,7 +84,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 		if text=='Yes':
 			# pdb.set_trace()
 			prods_id=user.viewOne(update.message.chat_id)[2]
-			user.update(update.message.chat_id,arr[0:1],prods_id)
+			user.update(update.message.chat_id,arr[0:2],prods_id)
 			reply_markup = ReplyKeyboardRemove()
 			update.message.reply_text('Now tell us the Product name?',reply_markup=reply_markup)
 
@@ -92,7 +92,7 @@ def hd(update,context,bot,text,channel_id,verifierchat_id):
 			prods_id=user.viewOne(update.message.chat_id)[2]
 			product=Product()
 			prods = product.viewProds(prods_id)
-			response=f'{prods[0][0]}'
+			response=f'{prods[0][0]} \nPhone Number:-{prods[0][2]}'
 			for i,prod in enumerate(prods):
 				response+=f'''
 
@@ -103,7 +103,6 @@ Price _ {prod[6]}
 Expiry date_ {prod[7]}
 Cartoon Size _ {prod[9]}
 Description _ {prod[8]}
-Phone Number _ {prod[1]}
 '''
 		
 			reply_markup=InlineKeyboardMarkup([

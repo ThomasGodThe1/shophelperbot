@@ -21,19 +21,18 @@ def start_command(update,context):
         # pdb.set_trace()
         id = int(context.args[0])
         arr=product.viewProds(id)
-        response=f'{arr[0][0]}'
+        response=f'{arr[0][0]} \nPhone Number:-{prods[0][2]}'
         for i,prod in enumerate(arr):
             product.verify(prod[11])
             response+=f'''  
 
-{i+1}. {prod[2]} {prod[3]}
+{i+1}. {prod[1]} {prod[3]}
 Brand _ {prod[4]}
 Country_ {prod[5]} 
 Price _ {prod[6]}
 Expiry date_ {prod[7]}
 Cartoon Size _ {prod[9]}
 Description _ {prod[8]}
-Phone Number _ {prod[1]}
 '''
         bot.send_message(channel_id,response)
         return update.message.reply_text('The message has been posted to the channel')
