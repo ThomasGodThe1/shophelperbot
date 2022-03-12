@@ -21,7 +21,7 @@ def start_command(update,context):
         # pdb.set_trace()
         id = int(context.args[0])
         arr=product.viewProds(id)
-        response=f'{arr[0][0]} \nPhone Number:-{prods[0][1]}'
+        response=f'{arr[0][0]} \nPhone Number:-{arr[0][1]}'
         for i,prod in enumerate(arr):
             product.verify(prod[11])
             response+=f'''  
@@ -39,18 +39,7 @@ Description _ {prod[8]}
     response='''This is upload bot where you can post your product
                 And we will verify then post it on our channel.
 
-                So we will need this information about your product
-
-                Company name 
-                Product name
-                Product preparation 
-                Product brand 
-                Product country 
-                Product price 
-                Expiry date
-                Description
-                Stock amount
-                for an example of how the post looks
+                An example of how the post looks
                 Amoxacilin syrup 250ml 
 
                 Brand _ amoxil
